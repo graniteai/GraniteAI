@@ -14,4 +14,10 @@ Understand the decisions being made using feature importance, showing the most i
 ### Accessible UI
 The user interface, built in Qt, is designed to make powerful machine learning and data science more accessible. Users can quickly select variables to explore the data sets. With just a few clicks, users can start a new machine learning project by selecting a target variable, choosing features to learn from, and automatically training the models. After training, models can be used to make predictions, or get insights into the data.
 
+## Example figures
+![alt text](https://raw.githubusercontent.com/mstaddon/GraniteAI/master/images/fig_1.png)
+![alt text](https://raw.githubusercontent.com/mstaddon/GraniteAI/master/images/fig_2.png)
+![alt text](https://raw.githubusercontent.com/mstaddon/GraniteAI/master/images/fig_3.png)
+![alt text](https://raw.githubusercontent.com/mstaddon/GraniteAI/master/images/fig_4.png)
+![alt text](https://raw.githubusercontent.com/mstaddon/GraniteAI/master/images/fig_5.png)
 ![alt text](https://raw.githubusercontent.com/mstaddon/GraniteAI/master/images/fig_6.png)
