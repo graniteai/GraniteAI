@@ -745,7 +745,7 @@ if __name__ == '__main__':
          y={'column': 'Parch', 'aggregate': 'mean'},
          color={'column': 'Pclass', 'dtype': 'categoric'})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -756,7 +756,7 @@ if __name__ == '__main__':
          y={'aggregate': 'count'},
          color={'column': 'Pclass', 'dtype': 'categoric'})
 
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -768,7 +768,7 @@ if __name__ == '__main__':
          color={'column': 'Pclass', 'dtype': 'categoric'},
          options={'stack': True})
 
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -779,7 +779,7 @@ if __name__ == '__main__':
          color={'column': 'Pclass', 'dtype': 'categoric'},
          options={'stack': True})
 
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -788,7 +788,7 @@ if __name__ == '__main__':
          x={'column': 'Name', 'dtype': 'text'},
          y={'aggregate': 'count'})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -799,7 +799,7 @@ if __name__ == '__main__':
          color={'column': 'Survived', 'dtype': 'categoric'},
          options={'stack': True})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
 
@@ -816,7 +816,7 @@ if __name__ == '__main__':
          y={'column': 'Parch', 'aggregate': 'mean'},
          color={'column': 'Pclass', 'dtype': 'categoric'})
 
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -826,7 +826,7 @@ if __name__ == '__main__':
          y={'column': 'Parch', 'aggregate': 'mean'},
          color={'column': 'Sex', 'dtype': 'categoric'})
 
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
 
@@ -836,7 +836,7 @@ if __name__ == '__main__':
          y={'column': 'SalePrice', 'aggregate': 'mean'},
          color={'column': 'OverallQual', 'dtype': 'categoric'})
 
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
 
@@ -848,7 +848,7 @@ if __name__ == '__main__':
          size={'aggregate': 'count', 'column': 'Pclass'},
          color={'aggregate': 'mean', 'column': 'SibSp'})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -856,7 +856,7 @@ if __name__ == '__main__':
          mark='point',
          x={'column': 'SibSp', 'aggregate': 'mean'})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -865,7 +865,7 @@ if __name__ == '__main__':
          x={'column': 'Sex'},
          y={'aggregate': 'count'})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
 
@@ -877,7 +877,7 @@ if __name__ == '__main__':
     
     plt.gcf().set_size_inches(5, 12.5)
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
 
@@ -888,7 +888,7 @@ if __name__ == '__main__':
          color={'column': 'Pclass', 'dtype': 'categoric'},
          options={'jittery': 0.5, 'alpha': 0.33})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
     
@@ -900,6 +900,6 @@ if __name__ == '__main__':
          size={'aggregate': 'count'},
          options={'jittery': 0, 'alpha': 0.8, 'max_size': 360})
     
-    plt.gcf().savefig('images/fig_{:}.png'.format(count))
+    plt.gcf().savefig('images/fig_{:}.png'.format(count), bbox_inches='tight')
     count += 1
     plt.show()
