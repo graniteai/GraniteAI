@@ -41,7 +41,6 @@ class VariableOptions(QtWidgets.QFrame):
         self.grid.setRowStretch(100, 1)
         
         self.variable = None
-        self.dtype = None
         
         self.MakeWidgets()
         self.UpdateTypes(numeric=numeric, binned=binned, categoric=categoric, text=text)
@@ -87,9 +86,8 @@ class VariableOptions(QtWidgets.QFrame):
         else:
             xs = sorted(self.project.get_numeric_columns())
         
-        # Store old variables - the index is changed when adding items
+        # Store old variable - the index is changed when adding items
         oldvar = self.variable
-        oldtype = self.dtype
         
         self.variableBox.clear()
         self.variableBox.addItems(xs)
@@ -98,14 +96,15 @@ class VariableOptions(QtWidgets.QFrame):
         
         # Set to default
         if len(xs) > 0:
-            self.ChangeVariable(xs[0])
+            # Update index
+            index = self.variableBox.findText(self.variable)
+            if index >= 0:
+                self.variableBox.setCurrentIndex(index)
+            else:
+                self.ChangeVariable(xs[0])
+                
         else:
             self.variable = None
-            
-        # Try old types
-        if oldvar is not None and oldtype is not None:
-            # Convert string to plotting dtype format
-            self.SetOptions(oldvar, dtype=oldtype.split(' ')[0].lower())
         
         
     def ChangeVariable(self, variable):
@@ -170,7 +169,7 @@ class VariableOptions(QtWidgets.QFrame):
         index = self.variableBox.findText(variable)
         if index >= 0:
             self.variableBox.setCurrentIndex(index)
-
+            
         if dtype is not None:          
             if dtype == 'numeric':
                 if bins == None:
@@ -463,7 +462,6 @@ class PlotIcon(BoxFrame):
         self.grid.setColumnStretch(0, 1)
         self.grid.setColumnStretch(1, 1)
 
-        row = 0
         for i, o in enumerate(options):
             # Only show non-default options
             if options[o] is None:
@@ -472,7 +470,7 @@ class PlotIcon(BoxFrame):
             # Clean up strings
             text = o.replace('_', ' ')
                 
-            self.grid.addWidget(QtWidgets.QLabel(text), row, 0)
+            self.grid.addWidget(QtWidgets.QLabel(text), i, 0)
             
             # Clean up strings
             if o == 'x_type':
@@ -486,9 +484,7 @@ class PlotIcon(BoxFrame):
                 text = options[o]
             
             label = QtWidgets.QLabel(str(text))
-            self.grid.addWidget(label, row, 1)
-            
-            row += 1
+            self.grid.addWidget(label, i, 1)
             
         
         f = QtWidgets.QFrame()

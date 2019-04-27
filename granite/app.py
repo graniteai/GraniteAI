@@ -122,6 +122,7 @@ class GraniteApp(QtWidgets.QWidget):
         self.project = project
         
         self.window = HorizontalTabWidget()
+#        self.window = QtWidgets.QTabWidget()
         self.grid.addWidget(self.window, 1, 0)
         
         # Make data, visualisation, and experiments frame

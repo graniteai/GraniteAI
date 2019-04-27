@@ -119,7 +119,8 @@ def ROCCurve(y, yprob, classes=None, fig=None, ax=None):
         roc_auc = auc(fpr, tpr)
         
         # Plot ROC
-        ax.plot(fpr, tpr, lw=3, label='{:} (Area = {:.3f})'.format(cat, roc_auc))
+        ax.plot(fpr, tpr, color=colors[index],
+                lw=3, label='{:} (Area = {:.3f})'.format(cat, roc_auc))
     #    ax.fill_between(fpr, tpr, color='C0', alpha=0.33)
     
     ax.plot([0, 1], [0, 1], color=(0.85, 0.85, 0.85), lw=3, linestyle='--')

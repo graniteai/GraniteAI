@@ -282,7 +282,7 @@ class _RelationalPlotter():
         """ Convert color column into rgba codes """
         if self.color is None:
             return colors[0], {}
-        
+
         if cmap is None:
             if self.color_type == 'discrete':
                 cmap = numeric_cmap
@@ -290,7 +290,7 @@ class _RelationalPlotter():
             else:
                 cmap = categoric_cmap
                 scale = 9
-            
+
         # Map categories to values
         cols = []
         
@@ -500,11 +500,7 @@ class _RelationalPlotter():
             if self.x_type == 'numeric':
                 raise ValueError('Bar chart does not work for numeric values')
 
-            if self.color is None:
-                x = self.category_to_x(stats['x'].values, c=None)
-            else:
-                x = self.category_to_x(stats['x'].values, c=stats['color'])
-            
+            x = self.category_to_x(stats['x'].values, c=stats['color'])
             self.ax.bar(x, stats['mean'],
                         width=0.8 / len(self.color_order), color=c,
                         edgecolor=(0.85, 0.85, 0.85), lw=0.75)
@@ -527,13 +523,12 @@ class _RelationalPlotter():
             
         if color is not None:
             c = stats['color']
-            x = self.category_to_x(stats['x'], c=c)[0::5]
         else:
             c = colors[0]
-            x = self.category_to_x(stats['x'], c=None)[0::5]
             
         width = 0.8 / len(self.color_order)
-        
+
+        x = self.category_to_x(stats['x'], c=c)[0::5]
 
         if color is not None:
             c, _ = self.get_color_mapping(stats['color'])
