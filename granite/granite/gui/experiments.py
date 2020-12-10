@@ -58,7 +58,7 @@ class TargetColumnsTable(QtWidgets.QTableWidget):
             self.setItem(i, 1, QtWidgets.QTableWidgetItem(str(col)))
             but = QtWidgets.QPushButton(col)
             but.setObjectName('table')
-            but.clicked.connect(lambda x=col: self.window.ChangeTarget(x))
+            but.clicked.connect(lambda state, x=col: self.window.ChangeTarget(x))
             self.setCellWidget(i, 1, but)
             
             self.setItem(i, 2, QtWidgets.QTableWidgetItem(data['Type'].iloc[i]))
@@ -821,7 +821,7 @@ class ModelsTable(QtWidgets.QTableWidget):
             self.setItem(i, 1, QtWidgets.QTableWidgetItem(str(model)))
             but = QtWidgets.QPushButton(model)
             but.setObjectName('table')
-            but.clicked.connect(lambda x=model: self.window.select_model(x))
+            but.clicked.connect(lambda state, x=model: self.window.select_model(x))
             self.setCellWidget(i, 1, but)
             
             if experiment.models[model].trained:
@@ -831,7 +831,7 @@ class ModelsTable(QtWidgets.QTableWidget):
             self.setItem(i, 5, QtWidgets.QTableWidgetItem('Train'))
             but = QtWidgets.QPushButton('Train')
             but.setObjectName('table')
-            but.clicked.connect(lambda x=model: self.TrainModel(x))
+            but.clicked.connect(lambda state, x=model: self.TrainModel(x))
             self.setCellWidget(i, 5, but)
             
 
@@ -872,13 +872,13 @@ class ModelsTable(QtWidgets.QTableWidget):
             but = self.cellWidget(i, 5)
             but.setText('Train')
             but.clicked.disconnect()
-            but.clicked.connect(lambda x=model: self.TrainModel(x))
+            but.clicked.connect(lambda state, x=model: self.TrainModel(x))
         else:
             self.setItem(i, 5, QtWidgets.QTableWidgetItem('Stop'))
             but = self.cellWidget(i, 5)
             but.setText('Stop')
             but.clicked.disconnect()
-            but.clicked.connect(lambda x=model: self.CancelFitting(x))
+            but.clicked.connect(lambda state, x=model: self.CancelFitting(x))
             
         self.setSortingEnabled(True)
 
@@ -1203,7 +1203,7 @@ class FeaturesFrame(QtWidgets.QFrame):
             
             but = QtWidgets.QPushButton(str(f))
             but.setObjectName('table')
-            but.clicked.connect(lambda x=f: self.SelectFeature(x))
+            but.clicked.connect(lambda state, x=f: self.SelectFeature(x))
             self.table.setCellWidget(i, 1, but)
             
             self.table.setItem(i, 2, QtWidgets.QTableWidgetItem(t))
